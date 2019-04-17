@@ -1,0 +1,6 @@
+getMedium :: IO String
+getMedium = do
+       putStrLn "Enter Medium (Cards or Coin):"
+       medium <- getLine
+       return medium
+       
