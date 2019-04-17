@@ -1,0 +1,5 @@
+getNumberOfDraws :: IO String
+getNumberOfDraws = do
+       putStrLn "Enter number of draws:"
+       draws <- getLine
+       return draws 
