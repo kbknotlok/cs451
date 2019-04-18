@@ -1,0 +1,6 @@
+import System.Random
+
+main = do
+       gen <- getStdGen
+       let (randIndex, _) = randomR(0, 64) gen :: (Int, StdGen)
+       print randIndex
