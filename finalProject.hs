@@ -1,13 +1,15 @@
 main = start
 
 start = do
-    putStrLn "Would you like to draw a card or flip a coin? (1 -> card, 2 -> coin, 3 <- quit)"
+    putStrLn "Would you like to draw a card, flip a coin, or roll a die? (1 -> card, 2 -> coin, 3 <- roll die, 4 <- quit)"
     choice <- getLine
     if choice == "1" then
         drawCard
     else if choice == "2" then
         flipCoin
     else if choice == "3" then
+        rollDice
+    else if choice == "4" then
         putStrLn "Good bye."
     else do
         putStrLn "Not a valid choice!"
@@ -41,6 +43,16 @@ drawCard = do
     else do 
         putStrLn "Not a valid choice"
         drawCard
+    start
+
+rollDice = do
+    putStrLn "How many sides does the die have?"
+    sides <- getLine
+    putStrLn "How many times do you want to roll the die?"
+    times <- getLine
+    putStrLn "What number are you trying to roll?"
+    n <- getLine
+    putStrLn ("The probability of getting a " ++ n ++ " " ++ times ++ " times is " ++ (show (probab (read times) 1 (read sides) "Rep")) ++ "%")
     start
 
 flipCoin = do
